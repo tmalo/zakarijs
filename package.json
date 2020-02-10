@@ -2,7 +2,7 @@
   "name": "zakarijs",
   "version": "1.0.0",
   "description": "A module to access Zakari Api",
-  "main": "index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "gts check",
@@ -31,5 +31,10 @@
     "typescript": "~3.7.0",
     "gts": "^1.1.2",
     "@types/node": "^10.0.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
+    "set-cookie-parser": "^2.4.3"
   }
 }
