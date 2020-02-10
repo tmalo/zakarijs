@@ -87,6 +87,14 @@ class ZakariConnection {
             })
         })        
     }
+
+    /**
+     * get the user info
+     * @returns the user info
+     */
+    getUser(): IAuthUser {
+        return this.credentials.user
+    }
 }
 
 /**
