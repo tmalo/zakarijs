@@ -160,17 +160,28 @@ export default class zakari {
             })
             .catch(rep => {
                 let badresponse = rep.response;
+                if (badresponse) {
+                    let rep_error = badresponse.data.errors[0]
+                    console.log({status: badresponse.status, text: badresponse.statusText})
+                    let _error: ZakariServerError = {
+                        status: badresponse.data ? rep_error.status : badresponse.status,
+                        code: badresponse.data ? rep_error.code : '',
+                        title: badresponse.data ? rep_error.title : badresponse.statusText,
+                        
+                    }
 
-                let rep_error = badresponse.data.errors[0]
-                console.log({status: badresponse.status, text: badresponse.statusText})
-                let _error: ZakariServerError = {
-                    status: badresponse.data ? rep_error.status : badresponse.status,
-                    code: badresponse.data ? rep_error.code : '',
-                    title: badresponse.data ? rep_error.title : badresponse.statusText,
-                    
+                    reject(_error) 
+                } else if (rep.message==="Network Error") {
+                    let _error: ZakariServerError = {
+                        status: 500,
+                        code: 'NETWORK_ERROR',
+                        title: 'Cannot contact server',
+                        
+                    }
+
+                    reject(_error) 
+
                 }
-
-                reject(_error) 
                 return false                
             })
             .then (response => {
