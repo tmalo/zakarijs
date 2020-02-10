@@ -95,6 +95,7 @@ class ZakariConnection {
 export default class zakari {
     server: string
     options: ZakariOptions
+    connection?: ZakariConnection
 
     /**
      * The client module for zakari
@@ -107,6 +108,7 @@ export default class zakari {
         this.server = server_url;
         this.options= options;
         this.options.baseURL = server_url;
+        this.connection = undefined
 
     }
 
@@ -193,7 +195,7 @@ export default class zakari {
                     map: true           //default: false
                   });
 
-                console.log(response.headers)
+                //console.log(response.headers)
 
                 let answer: ZakariConnection = new ZakariConnection(me.options, 
                     response.data,
@@ -203,6 +205,7 @@ export default class zakari {
                     }
                 )
 
+                me.connection= answer
                 resolve(answer)
 
                 return answer;
