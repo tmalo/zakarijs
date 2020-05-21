@@ -28,13 +28,13 @@
   },
   "homepage": "https://github.com/tmalo/zakarijs#readme",
   "devDependencies": {
-    "typescript": "~3.7.0",
-    "gts": "^1.1.2",
-    "@types/node": "^10.0.3"
+    "@types/node": "^10.17.24",
+    "gts": "^2.0.2",
+    "typescript": "~3.7.0"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "bluebird": "^3.7.2",
-    "set-cookie-parser": "^2.4.3"
+    "set-cookie-parser": "^2.4.5"
   }
 }
